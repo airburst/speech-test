@@ -3,8 +3,6 @@ const fs = require('file-system');
 const path = require('path');
 require('dotenv-safe').config();
 
-console.log(process.env.GOOGLE_APPLICATION_CREDENTIALS);
-
 async function main() {
   // Creates a client
   const client = new speech.SpeechClient();
