@@ -3,21 +3,23 @@ const fs = require('file-system');
 const path = require('path');
 require('dotenv-safe').config();
 
+const BUCKET = process.env.BUCKET;
+
 function main() {
   // Creates a client
   const client = new speech.SpeechClient();
 
-  // The name of the audio file to transcribe
-  const fileName = path.join(__dirname, 'resources/test2.wav');
+  // // The name of the audio file to transcribe
+  // const fileName = path.join(__dirname, 'resources/iphone.m4a');
 
-  // Reads a local audio file and converts it to base64
-  const file = fs.readFileSync(fileName);
-  const audioBytes = file.toString('base64');
+  // // Reads a local audio file and converts it to base64
+  // const file = fs.readFileSync(fileName);
+  // const audioBytes = file.toString('base64');
 
   // The audio file's encoding, sample rate in hertz, and BCP-47 language code
   const audio = {
-    content: audioBytes,
-    // "uri": "gs://bucket-name/path_to_audio_file"
+    // content: audioBytes,
+    uri: `${BUCKET}/test2.wav`
   };
 
   const config = {
